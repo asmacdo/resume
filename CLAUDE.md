@@ -10,23 +10,22 @@ conda activate stamped
 make
 ```
 
-For final builds, use `datalad run` to record provenance:
-```bash
-conda activate stamped
-datalad run -m "Build resume PDF from LaTeX source" --output resume.pdf "tectonic resume.tex"
-```
-
 To recreate the conda environment:
 ```bash
-conda create -n stamped -c conda-forge --no-default-packages tectonic datalad
+conda create -n stamped -c conda-forge --no-default-packages tectonic
 ```
 
-Output: `resume.pdf`
+Output: `resume.pdf` (gitignored, built by CI)
+
+Published at: https://asmacdo.github.io/resume/resume.pdf
+
+CI rebuilds and deploys to GitHub Pages on every push to main (`.github/workflows/build.yml`).
 
 ## Files
 
 - `resume.tex` — source of truth, builds the PDF
-- `Makefile` — builds resume.pdf via tectonic
+- `Makefile` — builds resume.pdf via tectonic (local dev)
+- `.github/workflows/build.yml` — CI build and GitHub Pages deployment
 - `context-heavy-agent-evaluation-mechababs.md` — AI workflow evaluation used to inform the AI skills description
 
 ## How Austin works

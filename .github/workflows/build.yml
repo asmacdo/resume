@@ -1,0 +1,42 @@
+name: Build and deploy resume
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: conda-incubator/setup-miniconda@v3
+        with:
+          channels: conda-forge
+          channel-priority: strict
+
+      - name: Install tectonic
+        shell: bash -l {0}
+        run: conda install -y tectonic
+
+      - name: Build PDF
+        shell: bash -l {0}
+        run: tectonic resume.tex
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
