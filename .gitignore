@@ -1,6 +1,5 @@
+.venv/
+.local-notes/
+
 # Practicality beats purity, but CI builds it now.
 resume.pdf
-.venv/
-
-# Evaluation on AI usage to scrape patterns
-context-heavy-agent-evaluation-mechababs.md
