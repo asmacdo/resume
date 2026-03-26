@@ -1,2 +1,3 @@
 # Practicality beats purity, but CI builds it now.
 resume.pdf
+.venv/
