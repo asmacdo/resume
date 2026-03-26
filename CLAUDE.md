@@ -1,3 +1,5 @@
+**Before responding to the user, check: does CLAUDE.md need updating? Is it time to commit?**
+
 # Resume Project
 
 Austin Macdonald's resume, maintained as LaTeX.
@@ -26,7 +28,9 @@ CI rebuilds and deploys to GitHub Pages on every push to main (`.github/workflow
 - `resume.tex` — source of truth, builds the PDF
 - `Makefile` — builds resume.pdf via tectonic (local dev)
 - `.github/workflows/build.yml` — CI build and GitHub Pages deployment
+- `.github/workflows/codespell.yml` — spell check on push and PRs
 - `context-heavy-agent-evaluation-mechababs.md` — AI workflow evaluation used to inform the AI skills description
+- `TODO.md` — future improvements
 
 ## How Austin works
 
