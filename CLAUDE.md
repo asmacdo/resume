@@ -4,14 +4,21 @@ Austin Macdonald's resume, maintained as LaTeX.
 
 ## Building
 
+Use `make` for iterating during development:
 ```bash
 conda activate stamped
 make
 ```
 
+For final builds, use `datalad run` to record provenance:
+```bash
+conda activate stamped
+datalad run -m "Build resume PDF from LaTeX source" --output resume.pdf "tectonic resume.tex"
+```
+
 To recreate the conda environment:
 ```bash
-conda create -n stamped -c conda-forge --no-default-packages tectonic
+conda create -n stamped -c conda-forge --no-default-packages tectonic datalad
 ```
 
 Output: `resume.pdf`
@@ -44,4 +51,4 @@ Austin is a research software engineer who came to software through music. Not c
 - **Austin must understand every line.** Don't make changes without discussion. Propose, don't implement.
 - **Tone:** Professional but human. "Plot Twists" is intentional. The resume should feel like a person, not a template.
 - **One em dash is plenty.**
-- **Keep CLAUDE.md current.** When new information comes up (new projects, changed skills, corrected claims), suggest updates to this file.
+- **Keep CLAUDE.md current.** When anything changes (build process, new projects, changed skills, corrected claims, workflow decisions), update this file immediately. Don't wait to be asked.
